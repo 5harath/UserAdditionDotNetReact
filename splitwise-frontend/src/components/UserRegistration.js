@@ -9,7 +9,7 @@ const UserRegistration = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const user = { name, email, password }; // Include password in user object
-        await axios.post('https://localhost:5001/api/user', user);
+        await axios.post('https://localhost:5000/api/user', user);
     };
 
     return (

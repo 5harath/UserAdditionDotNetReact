@@ -20,7 +20,7 @@ namespace SplitwiseBackend.Services
         }
 
         // Methods for adding users, groups, expenses, splitting expenses, updating balances, settling balances, and creating transactions
-        // ...existing code...
+        // Add your service methods here
 
         public async Task<List<User>> GetUsersAsync()
         {

@@ -3,7 +3,6 @@ using SplitwiseBackend.Models;
 using SplitwiseBackend.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System;
 
 namespace SplitwiseBackend.Controllers
 {
@@ -38,8 +37,6 @@ namespace SplitwiseBackend.Controllers
             }
 
             var createdUser = await _service.CreateUserAsync(user);
-
-            Console.WriteLine($"Created user: {createdUser.Id}");
 
             if (createdUser == null)
             {
