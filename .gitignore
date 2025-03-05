@@ -1,6 +1,5 @@
 
 # Ignore .NET build results
-appsettings.json
 bin/
 obj/
 *.exe
