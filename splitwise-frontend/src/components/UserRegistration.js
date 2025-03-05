@@ -5,11 +5,17 @@ const UserRegistration = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const user = { name, email, password };
-        await axios.post('https://localhost:5000/api/user', user);
+        try {
+            await axios.post('https://localhost:5000/api/user', user);
+            setMessage({ text: 'User registered successfully!', isError: false });
+        } catch (error) {
+            setMessage({ text: 'Failed to register user.', isError: true });
+        }
     };
 
     return (
@@ -27,6 +33,11 @@ const UserRegistration = () => {
                 <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
             </div>
             <button type="submit" className="btn btn-primary">Register</button>
+            {message && (
+                <div className={`mt-3 alert ${message.isError ? 'alert-danger' : 'alert-success'}`} role="alert">
+                    {message.text}
+                </div>
+            )}
         </form>
     );
 };
